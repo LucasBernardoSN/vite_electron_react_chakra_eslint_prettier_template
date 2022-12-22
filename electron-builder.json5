@@ -1,0 +1,43 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  appId: 'com.vite_electron_react_chakra_eslint_prettier.template',
+  productName: 'Electron Vite React Chakra App',
+  copyright: 'Copyright © 2022 ${author}',
+  asar: true,
+  directories: {
+    output: 'release/${version}',
+    buildResources: 'electron/resources',
+  },
+  files: ['dist'],
+  win: {
+    target: [
+      {
+        target: 'nsis',
+        arch: ['x64'],
+      },
+    ],
+    artifactName: '${productName}-Windows-${version}-Setup.${ext}',
+    // "publish": [
+    //     "github"
+    //   ],
+    //   "certificateFile": "./private/2021.pfx",
+    //   "certificatePassword": "SeguroEro_",
+    //   "icon": "./public/images/icon.ico",
+    //   "signingHashAlgorithms": [
+    //     "sha256",
+    //     "sha1"
+    //   ],
+    //   "signAndEditExecutable": true,
+    //   "verifyUpdateCodeSignature": false
+  },
+  mac: {
+    target: ['dmg'],
+    artifactName: '${productName}-Mac-${version}-Installer.${ext}',
+  },
+  linux: {
+    target: ['AppImage'],
+    artifactName: '${productName}-Linux-${version}.${ext}',
+  },
+}
